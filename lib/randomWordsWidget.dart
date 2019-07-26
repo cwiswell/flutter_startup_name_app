@@ -5,6 +5,7 @@ class RandomWordsState extends State<RandomWords> {
   final List<WordPair> _suggestions = <WordPair>[];
   final Set<WordPair> _saved = Set<WordPair>();
   final TextStyle _biggerFont = const TextStyle(fontSize: 18);
+  final TextStyle _coloredBiggerFont = const TextStyle(color: Colors.red,fontSize: 18);
 
   @override
   Widget build(BuildContext context) {
@@ -58,7 +59,7 @@ class RandomWordsState extends State<RandomWords> {
     return ListTile(
       title: Text(
         pair.asPascalCase,
-        style: _biggerFont,
+        style: alreadySaved ? _coloredBiggerFont : _biggerFont,
       ),
       trailing: Icon(
         alreadySaved ? Icons.favorite : Icons.favorite_border,
